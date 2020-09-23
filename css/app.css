@@ -1,0 +1,90 @@
+body {
+  background-color: rgb(255, 255, 255);
+  /* color:white; */
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.counter {
+  height: 30px;
+}
+
+#header {
+  font-size: 25px;
+  height: 250px;
+  width: 100%;
+  margin-bottom: 50px;
+  /* /* padding-bottom: 10px; */
+  text-align: center;
+  background-color: rgb(255, 247, 247)(255, 241, 241);
+  color: rgb(4, 92, 255);
+}
+
+.shadow {
+  -webkit-box-shadow: 0 6px 4px -4px rgb(134, 124, 124);
+  -moz-box-shadow: 0 6px 4px -4px rgb(168, 146, 146);
+  box-shadow: 0 6px 4px -4px rgb(146, 128, 128);
+  /* opacity: 50%; */
+}
+
+
+table {
+  margin: auto;
+  border-width: 1px;
+  border-color: rgb(10, 10, 10);
+  /* background-color: rgb(214, 212, 212); */
+}
+
+td {
+  padding: 10px;
+  background-color: rgb(240, 235, 235);
+}
+
+td:hover {
+  background-color: rgb(187, 114, 114);
+}
+
+/* img {
+  width: 100%;
+} */
+
+.unrevealed {
+  background-color: rgb(179, 168, 168);
+  /* padding: 30px; */
+  /* visibility:hidden; */
+}
+
+.clicked-mine {
+  background-color: red;
+}
+
+.cell {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.rotated-up {
+  transform: rotate(90deg);
+}
+.rotated-down {
+  transform: rotate(-90deg);
+}
+.rotated-right {
+  transform: rotate(180deg);
+}
+.rotated-left {
+  transform: rotate(0deg);
+}
+
+/* .flag {
+  color: black;
+} */
+
+.hide {
+  display: none;
+}
+
+.pacman-img {
+  width: 50%;
+}
