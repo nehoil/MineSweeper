@@ -2,7 +2,6 @@
 
 
 // TODO:
-// 1. Check why lose message shown after win message was dispaly and another game was played
 
 const MINE = '💣'
 const FLAG = `🚩`
@@ -27,6 +26,7 @@ var gMines = [];
 function initGame() {
     gGame.isOn = true
     gBoard = buildBoard();
+    createMines(gBoard,gLevel.MINES)
     setMinesNegsCount(gBoard)
     renderBoard(gBoard, '.board-container')
     renderLivesCounter()
@@ -49,9 +49,9 @@ function resetGame() {
     var elMsgs = document.querySelector('.messages');
     elMsgs.classList.add('hide')
     var elGameOverMsg = document.querySelector('.game-over')
-    elGameOverMsg.classList.remove('hide')
+    elGameOverMsg.classList.add('hide')
     var elWinningMsg= document.querySelector('.win')
-    elWinningMsg.classList.remove('hide')
+    elWinningMsg.classList.add('hide')
 }
 
 
@@ -103,8 +103,8 @@ function buildBoard() {
             board[i][j] = cell;
         }
     }
-    board[0][1].isMine = true;
-    board[0][2].isMine = true;
+    // board[0][1].isMine = true;
+    // board[0][2].isMine = true;
     // console.table(board);
     return board;
 
@@ -123,6 +123,7 @@ function setMinesNegsCount(board) {
 };
 
 function createMines(board, num) {
+    console.log('works');
     for (var i = 0; i < num; i++) {
         var mine = {}
         var randNum1 = getRandomIntInclusive(0, board.length - 1);
