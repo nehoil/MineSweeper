@@ -8,9 +8,14 @@ body {
   height: 30px;
 }
 
+.messages{
+  text-align: center;
+  height: 100px;
+}
+
 #header {
   font-size: 25px;
-  height: 250px;
+  height: 100px;
   width: 100%;
   margin-bottom: 50px;
   /* /* padding-bottom: 10px; */

@@ -1,5 +1,9 @@
 'use strict'
 
+
+// TODO:
+// 1. Check why lose message shown after win message was dispaly and another game was played
+
 const MINE = '💣'
 const FLAG = `🚩`
 var gBoard; // Contains  the Model
@@ -19,17 +23,36 @@ var gGame = { // Contains the game curr-state
 var gClickCount;
 var gMines = [];
 
+
 function initGame() {
     gGame.isOn = true
     gBoard = buildBoard();
-    // createMines(gBoard, gLevel.MINES)
     setMinesNegsCount(gBoard)
     renderBoard(gBoard, '.board-container')
     renderLivesCounter()
     renderMarkedCounter()
 };
 
-// setTimeout(showMines, 100);
+function resetGame() {
+    stopCount()
+    gBoard = ''
+    gGameInterval = 0;
+    gGame = { // Contains the game curr-state
+        isOn: false,
+        isWin: false,
+        lives: 3,
+        shownCount: 0,
+        markedCount: 0,
+        secsPassed: 0,
+    };
+    initGame()
+    var elMsgs = document.querySelector('.messages');
+    elMsgs.classList.add('hide')
+    var elGameOverMsg = document.querySelector('.game-over')
+    elGameOverMsg.classList.remove('hide')
+    var elWinningMsg= document.querySelector('.win')
+    elWinningMsg.classList.remove('hide')
+}
 
 
 function showMines() {
@@ -60,6 +83,8 @@ function stopGame() {
 function handleLose() {
     stopGame()
     showMines()
+    var elMsgs = document.querySelector('.messages')
+    elMsgs.classList.remove('hide')
     var elGameOverMsg = document.querySelector('.game-over')
     elGameOverMsg.classList.remove('hide')
 }
@@ -80,7 +105,7 @@ function buildBoard() {
     }
     board[0][1].isMine = true;
     board[0][2].isMine = true;
-    console.table(board);
+    // console.table(board);
     return board;
 
 }
@@ -138,6 +163,7 @@ function cellClicked(elCell, i = Nan, j = NaN) {
     if (!gGame.isOn) return;
     if (!gClickCount) addTimer()
     if (gBoard[i][j].isMarked) return;
+    if (gBoard[i][j].isShown) return;
     // var pos = {i,j}
     gClickCount++
     if (gBoard[i][j].minesAroundCount > 0 && gBoard[i][j].isMine !== true) {
@@ -204,16 +230,9 @@ function addTimer() {
 function winMsg() {
     stopCount()
     var elWinningMsg = document.querySelector('.win');
+    var elMsgs = document.querySelector('.messages');
+    elMsgs.classList.remove('hide')
     elWinningMsg.classList.remove('hide')
-}
-
-function resetGame(num) {
-    stopCount()
-    gIsWin = false;
-    gGameInterval = 0;
-    gGame.secsPassed = 0;
-    gBoard;
-    init(num)
 }
 
 function stopCount() {
