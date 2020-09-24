@@ -15,20 +15,29 @@
             Time: <span class="timer">0:00</span>
             Lives: <span class="lives-count">0</span></h2>
             Marked: <span class="marked-counter">0</span></h2>
+            <div id="level-choice">
+                <font size="4">
+                    Level:
+                    <input onchange="chooseLevel()" type="radio" id="easy" name="choice" value="easy" checked="checked">
+                    Easy (15)
+                    <input onchange="chooseLevel()" type="radio" id="hard" name="choice" value="hard"> Hard (25)
+                    <input onchange="chooseLevel()" type="radio" id="extreme" name="choice" value="extreme"> Extreme (36)
+                </font>
+            </div>
+            <div class="smiley" onclick="resetGame()">😊</div>
         </div>
-    </div>
-    <div class="messages">
-
-        <div class="game-over hide">
+        <!-- <div class="game-over hide">
             <h1>Game Over!</h1>
             <button onclick="resetGame()">Play Agin</button>
         </div>
         <div class="win hide">
             <h1>You Have Won!</h1>
             <button onclick="resetGame()">Play Agin</button>
-        </div>
+        </div> -->
     </div>
-</div>
+    <!-- <div class="messages">
+    </div> -->
+    </div>
     <div class="board-container"></div>
     <script src="js/utils.js"></script>
     <script src="js/game.js"></script>

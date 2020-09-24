@@ -8,14 +8,33 @@ body {
   height: 30px;
 }
 
+.smiley {
+  margin: auto;
+  background-color: rgb(247, 236, 222);
+  width: 100px;
+  height: 60px;
+  padding-top: 10px;
+  border: solid;
+  border-width: 0.5px;
+  border-color:  rgb(146, 128, 128);
+  border-radius: 10px;
+  cursor: pointer;
+  /* padding: 10px; */
+  /* margin: 10px; */
+}
+
 .messages{
   text-align: center;
   height: 100px;
 }
 
+.mine-img {
+  width: 100%;
+}
+
 #header {
   font-size: 25px;
-  height: 100px;
+  height: 140px;
   width: 100%;
   margin-bottom: 50px;
   /* /* padding-bottom: 10px; */
