@@ -37,7 +37,6 @@ function renderCellByData(location, value) {
 
 
 function renderMinesByData(location, value) {
-  console.log('rendering mines location:', location);
   var elCell = document.querySelector(`[data-id="${location.i}-${location.j}"]`);
   elCell.innerHTML = value;
 }
