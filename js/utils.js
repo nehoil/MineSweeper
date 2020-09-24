@@ -30,17 +30,23 @@ function renderBoard(mat, selector) {
 // location such as: {i: 2, j: 7}
 function renderCellByData(location, value) {
   // Select the elCell and set the value
-  
   var elCell = document.querySelector(`[data-id="${location.i}-${location.j}"]`);
   // var elCell = document.querySelector(`.cell${location.i}-${location.j}`);
   elCell.innerHTML = value;
-  // elCell.classList.remove('unrevealed')
 }
+
+
+function renderMinesByData(location, value) {
+  console.log('rendering mines location:', location);
+  var elCell = document.querySelector(`[data-id="${location.i}-${location.j}"]`);
+  elCell.innerHTML = value;
+}
+
 
 function revealCellsByData(location) {
   // Select the elCell and set the value
   var elCell = document.querySelector(`[data-id="${location.i}-${location.j}"]`);
-  elCell.classList.remove('unrevealed')
+  elCell.classList.remove('unrevealed');
 }
 
 
@@ -67,3 +73,34 @@ function countNeighbors(cellI, cellJ, mat) {
   }
   return neighborsSum;
 }
+
+function shallowEqual(object1, object2) {
+  const keys1 = Object.keys(object1);
+  const keys2 = Object.keys(object2);
+
+  if (keys1.length !== keys2.length) {
+    return false;
+  }
+
+  for (let key of keys1) {
+    if (object1[key] !== object2[key]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+// function hasDuplicates(arr)
+// {
+// 	return new Set(arr).size !== arr.length; 
+// }
+
+// var arr = [ 2, 4, 6, 5, 4 ];
+
+// if (hasDuplicates(arr)) {
+// 	console.log("Duplicate elements found.");
+// }
+// else {
+// 	console.log("No Duplicates found.");
+// }
