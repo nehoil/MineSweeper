@@ -1,24 +1,48 @@
 body {
   background-color: rgb(255, 255, 255);
   /* color:white; */
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: "Lato", sans-serif;
+  transition: all 0.5s;
 }
 
 .counter {
-  height: 30px;
+  height: 10px;
+  transition: all 0.2s;
+}
+
+.btns {
+  margin-top: 30px;
+  width: 100%;
+  height: 100px;
+  transition: all 0.2s;
 }
 
 .smiley {
-  margin: auto;
+  display: inline;
   background-color: rgb(247, 236, 222);
-  width: 100px;
-  height: 60px;
-  padding-top: 10px;
+  padding: 8px;
   border: solid;
   border-width: 0.5px;
   border-color: rgb(146, 128, 128);
   border-radius: 10px;
   cursor: pointer;
+  transition: all 0.2s;
+  /* padding: 10px; */
+  /* margin: 10px; */
+}
+
+.hint-count {
+  font-size: 13px;
+  color: rgb(123, 133, 141);
+  transition: all 0.2s;
+}
+
+.hint {
+  display: inline;
+  margin: auto;
+  padding-top: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
   /* padding: 10px; */
   /* margin: 10px; */
 }
@@ -26,6 +50,12 @@ body {
 .messages {
   text-align: center;
   height: 100px;
+  transition: all 0.2s;
+}
+
+.hint-clicked {
+  filter: brightness(150%);
+  transition: all 0.2s;
 }
 
 .mine-img {
@@ -33,7 +63,7 @@ body {
 }
 
 #header {
-  font-size: 25px;
+  font-size: 22px;
   height: 140px;
   width: 100%;
   margin-bottom: 50px;
@@ -41,6 +71,7 @@ body {
   text-align: center;
   background-color: rgb(255, 247, 247) (255, 241, 241);
   color: rgb(4, 92, 255);
+  transition: all 0.2s;
 }
 
 .shadow {
@@ -55,6 +86,7 @@ table {
   border-width: 1px;
   table-layout: fixed;
   border-color: rgb(10, 10, 10);
+  transition: width 2s linear 1s; 
   /* background-color: rgb(214, 212, 212); */
 }
 
@@ -67,12 +99,12 @@ table {
  */
 
 td {
-  width: 30px;
-  height: 30px;
-  max-width: 30px;
-  min-width: 30px;
-  max-height: 30px;
-  min-height: 30px;
+  width: 20px;
+  height: 20px;
+  max-width: 20px;
+  min-width: 20px;
+  max-height: 20px;
+  min-height: 20px;
   overflow: hidden;
   /* height: 100%; */
   /* padding: 100%; */
@@ -101,10 +133,11 @@ td:hover {
 }
 
 .cell {
-  width: 40px;
-  height: 40px;
+  transition: all 0.5s;
+  width: 20px;
+  height: 20px;
   text-align: center;
-  font-size: 1.5em;
+  font-size: 15px;
 }
 
 .rotated-up {
@@ -120,9 +153,6 @@ td:hover {
   transform: rotate(0deg);
 }
 
-/* .flag {
-  color: black;
-} */
 
 .hide {
   display: none;

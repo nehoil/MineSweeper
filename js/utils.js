@@ -49,6 +49,12 @@ function revealCellsByData(location) {
   elCell.classList.remove('unrevealed');
 }
 
+function unrevealCellsByData(location) {
+  // Select the elCell and set the value
+  var elCell = document.querySelector(`[data-id="${location.i}-${location.j}"]`);
+  elCell.classList.add('unrevealed');
+}
+
 
 // location such as: {i: 2, j: 7}
 function renderCell(location, value) {

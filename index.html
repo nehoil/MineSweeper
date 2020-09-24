@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Roboto:wght@300&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -24,19 +25,13 @@
                     <input onchange="chooseLevel()" type="radio" id="extreme" name="choice" value="extreme"> Extreme
                 </font>
             </div>
-            <div class="smiley" onclick="resetGame(gPrevLevel)">😊</div>
+            <div class="btns">
+                <div class="smiley" onclick="resetGame(gPrevLevel)">😊</div>
+                <div class="hint" onclick="activateHint()">💡<span class="hint-count">3/3</span></div>
+            </div>
         </div>
-        <!-- <div class="game-over hide">
-            <h1>Game Over!</h1>
-            <button onclick="resetGame()">Play Agin</button>
-        </div>
-        <div class="win hide">
-            <h1>You Have Won!</h1>
-            <button onclick="resetGame()">Play Agin</button>
-        </div> -->
+
     </div>
-    <!-- <div class="messages">
-    </div> -->
     </div>
     <div class="board-container"></div>
     <script src="js/utils.js"></script>
