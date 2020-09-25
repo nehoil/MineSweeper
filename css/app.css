@@ -36,8 +36,13 @@ body {
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.2s;
+
   /* padding: 10px; */
   /* margin: 10px; */
+}
+
+.smiley:hover {
+  background-color: rgb(248, 247, 190);
 }
 
 .hint-count {
@@ -54,7 +59,6 @@ body {
 
 .hint {
   display: inline;
-  margin: auto;
   padding-top: 10px;
   cursor: pointer;
   transition: all 0.2s;
@@ -62,9 +66,85 @@ body {
   /* margin: 10px; */
 }
 
+button {
+  background-color: white;
+  border-width: 0.1px;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.bomb-cursor {
+  cursor: url("/img/bomb.png"), auto;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.self-position {
+ text-align: center;
+ padding: 30px;
+ margin: auto;
+}
+
+.prevent-click {
+  pointer-events: none 
+}
+
+.unclickable {
+  filter: brightness(60%);
+}
+
+.brighter {
+  filter: brightness(120%);
+}
+
+.sclick {
+  display: inline;
+  padding-top: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  /* padding: 10px; */
+  /* margin: 10px; */
+}
+
+.hint:hover {
+    filter: brightness(110%);
+    transition: all 0.2s;
+  }
+
 .messages {
   text-align: center;
   height: 100px;
+  transition: all 0.2s;
+}
+
+@-webkit-keyframes borderBlink {    
+  from, to {    
+      border-color: transparent    
+  }    
+  50% {    
+      border-color: rgb(56, 136, 255)    
+  }    
+}    
+@keyframes borderBlink {    
+  from, to {    
+      border-color: transparent    
+  }    
+  50% {    
+      border-color: rgb(137, 212, 255)    
+  }    
+}    
+.borderBlink{    
+  border:2px solid rgb(32, 166, 207);
+  -webkit-animation: borderBlink 1s step-end infinite;    
+  animation: borderBlink 1s step-end infinite;    
+  transition: all 0.2s linear 1s;
+  /* add 'border-color: transparent' if you wish no border to show initially */  
+}
+
+.sclick-clicked {
+  filter: brightness(100%);
   transition: all 0.2s;
 }
 
@@ -75,6 +155,12 @@ body {
 
 .mine-img {
   width: 30px;
+}
+
+.random-empty-cell{
+  border-width: 3px;
+  border-color: blue
+  animation: border-flicker 3s linear ;
 }
 
 #header {

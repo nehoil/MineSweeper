@@ -47,6 +47,11 @@ function revealCellsByData(location) {
   var elCell = document.querySelector(`[data-id="${location.i}-${location.j}"]`);
   elCell.classList.remove('unrevealed');
 }
+function revealCellsByDataToggle(location) {
+  // Select the elCell and set the value
+  var elCell = document.querySelector(`[data-id="${location.i}-${location.j}"]`);
+  elCell.classList.toggle('unrevealed');
+}
 
 function unrevealCellsByData(location) {
   // Select the elCell and set the value
@@ -108,4 +113,35 @@ function shallowEqual(object1, object2) {
 // }
 // else {
 // 	console.log("No Duplicates found.");
+// }
+
+
+// Backup of ShowNegs
+
+// function showNegs(mat, cellPos) {
+//     currShowedNegs = []
+//     var rowIdx = cellPos.i;
+//     var colIdx = cellPos.j;
+//     var cellCountContent;
+//     for (var i = rowIdx - 1; i <= rowIdx + 1; i++) {
+//         if (i < 0 || i > mat.length - 1) continue;
+//         for (var j = colIdx - 1; j <= colIdx + 1; j++) {
+//             if (j < 0 || j > mat.length - 1) continue;
+//             if (mat[i][j].isShown) continue;
+//             if (mat[i][j].isMarked) continue;
+//             var negsPos = { i, j }
+//             cellCountContent = '';
+//             if (!gGame.isHint) gBoard[i][j].isShown = true;
+//             if (mat[i][j].minesAroundCount) {
+//                 cellCountContent = mat[i][j].minesAroundCount;
+//             }
+//             if (mat[i][j].isMine) {
+//                 cellCountContent = MINE
+//             }
+//             // Update DOM
+//             renderCellByData(negsPos, cellCountContent);
+//             revealCellsByData(negsPos);
+//             currShowedNegs.push(negsPos);
+//         }
+//     }
 // }
