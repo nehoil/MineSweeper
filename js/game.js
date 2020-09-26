@@ -3,8 +3,10 @@
 
 // TODO:
 // 1. Change the levels funcs to be less hard-coded
-// 2. Fix lose if has 1 life but didn't marked all the mines (Improve line 393);
 // 3. Decide if to start game timer after 1st cell is marked. (can win the game);
+// 3. Decide - if level one - all mines has been shown, so player can't win?
+// 4. Chnage timer to 00:00 from 0.00
+// 5. Change Levels input to be btns
 
 const MINE = '💣';
 const FLAG = '🚩';
@@ -44,6 +46,8 @@ function initGame(num = 1) {
     renderLivesCounter();
     renderMarkedCounter();
     renderHints();
+    renderSclickCounter();
+    renderMinesCounter();
     showScore();
 };
 
@@ -75,12 +79,15 @@ function renderHints() {
 }
 
 function hideScore() {
-    document.querySelector('.best-score').innerHTML = ''
+    // console.log('hiding score');
+    document.querySelector('.best-score').innerHTML = '';
+    document.querySelector('.curr-score').innerHTML = '';
 }
 
 function resetGame(num = 1) {
-    hideHint()
-    stopCount()
+    hideHint();
+    stopCount();
+    hideScore();
     gMines = [];
     gBoard = '';
     gClickCount = 0;
@@ -102,6 +109,18 @@ function resetGame(num = 1) {
     smiley.innerHTML = '😊';
     document.querySelector(".timer").innerHTML = 0.00
 }
+
+function mouseDown(){
+    if (!gGame.isOn) return;
+    var smiley = document.querySelector('.smiley');
+    smiley.innerHTML = '😮';
+}
+function mouseUp(){
+    if (!gGame.isOn) return;
+    var smiley = document.querySelector('.smiley');
+    smiley.innerHTML = '😊';
+}
+
 
 function activateSelfMode(board = gBoard) {
     resetGame(gPrevLevel)
@@ -137,7 +156,15 @@ function createLevels(num) {
     return res;
 }
 
-
+function countShownMines() {
+    var count = 0;
+    for (var i = 0; i < gMines.length; i++) {
+        var minePosI = gMines[i].i
+        var minePosJ = gMines[i].j
+        if (gBoard[minePosI][minePosJ].isShown) count++;
+    }
+    return count;
+}
 
 function showMines() {
     for (var i = 0; i < gMines.length; i++) {
@@ -280,7 +307,10 @@ function checkWin() {
     // console.log('gGame.markedCount', gGame.markedCount);
     // console.log('countShownCells(gBoard)', countShownCells(gBoard));
     if (gGame.markedCount === gLevel.MINES && countShownCells(gBoard) === gLevel.SIZE * gLevel.SIZE - gLevel.MINES) {
-        gGame.isWin = true;
+        if (countShownMines() === gLevel.MINES){
+            handleLose();
+            return
+        }       gGame.isWin = true;
         var bestScore = +localStorage.getItem(gLevel.SIZE);
         if (gGame.secsPassed < bestScore || bestScore === 0) {
             localStorage.setItem(gLevel.SIZE, gGame.secsPassed);
@@ -394,6 +424,11 @@ function renderLivesCounter() {
     elLivesCounter.innerText = HTMLstr
 }
 
+function renderMinesCounter() {
+    var elMarkedCounter = document.querySelector('.mines-counter');
+    elMarkedCounter.innerText = gLevel.MINES
+}
+
 function renderMarkedCounter() {
     var elMarkedCounter = document.querySelector('.marked-counter');
     elMarkedCounter.innerText = gLevel.SIZE * gLevel.SIZE - gGame.markedCount
@@ -464,12 +499,12 @@ function placeMine(cell, pos) {
 //   console.log('Using dispatchEvent');
 //   body.dispatchEvent(new Event('click'));
 
-function changeSmileyOnClick() {
-    addEventListener('click', e => {
-        console.log('clicked body');
-    });
-    document.querySelector('.smiley').innerHTML = '😮'
-}
+// function changeSmileyOnClick() {
+//     addEventListener('click', e => {
+//         console.log('clicked body');
+//     });
+//     document.querySelector('.smiley').innerHTML = '😮'
+// }
 
 function cellClicked(elCell, i = Nan, j = NaN) {
     var pos = { i, j };
@@ -529,7 +564,8 @@ function cellClicked(elCell, i = Nan, j = NaN) {
     gGame.shownCount++
     elCell.classList.remove('unrevealed');
     checkWin();
-    if (countShownCells(gBoard) === gBoard.length * gBoard.length) handleLose();
+    if ((countShownCells(gBoard) === gBoard.length * gBoard.length) || (countShownMines() === gLevel.MINES)) handleLose();
+    // if (countShownCells(gBoard) === gBoard.length * gBoard.length) handleLose();
 };
 
 

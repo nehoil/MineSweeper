@@ -8,6 +8,7 @@ function renderBoard(mat, selector) {
       var dataId = `${i}-${j}`;
       var oncontextmenu = `oncontextmenu="rightClicked(this,${i},${j})"`
       var onClick = `onclick="cellClicked(this,${i},${j})"`;
+      var onMouse = `onmousedown="mouseDown(${i},${j})" onmouseup="mouseUp()"`
       if (mat[i][j].isShown) cell = ' ';
       if (mat[i][j].isMine) cell = MINE;
       if (mat[i][j].minesAroundCount && mat[i][j].isMine !== true) cell += mat[i][j].minesAroundCount;
@@ -15,7 +16,7 @@ function renderBoard(mat, selector) {
         cell = ``;
         // className = `cell cell ${i}-${j} unrevealed`;
       }
-      strHTML += `<td class="${className}" data-id="${dataId}" ${onClick} ${oncontextmenu}>${cell}</td>`
+      strHTML += `<td class="${className}" data-id="${dataId}" ${onClick} ${oncontextmenu} ${onMouse}>${cell}</td>`
     }
     strHTML += '</tr>'
   }

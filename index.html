@@ -11,48 +11,48 @@
 </head>
 
 <body onload="initGame()">
-    <div id="header" class="shadow">
-        <div class="sec-header">
+    <div class="header">
             <div class="stats">
                 <span class="timer">0:00</span>
-                <span class="lives-count">❤️❤️❤️</span></h2>
                 <span class="marked-counter">0</span></h2> 🚩
+                <span class="mines-counter">0</span></h2> 💣
                 <div class="btns">
                     <div class="sclick unclickable" onclick="activateSafeClick()">🔮<span
-                            class="sclick-count">3/3</span></div>
-                    <div class="smiley" onclick="resetGame(gPrevLevel)">😊</div>
-                    <div class="hint" onclick="activateHint()">💡<span class="hint-count">3/3</span></div>
-                </div>
-                <div id="level-choice">
-                    <font size="4">
-                        <input onchange="chooseLevel()" type="radio" id="easy" name="choice" value="easy"
+                        class="sclick-count">3/3</span></div>
+                        <div class="smiley" onmousedown="mouseDown()" onmouseup="mouseUp()" onclick="resetGame(gPrevLevel)">😊</div>
+                        <div class="hint" onclick="activateHint()">💡<span class="hint-count">3/3</span></div>
+                    </div>
+                    <div id="level-choice">
+                        <font size="4">
+                            <input onchange="chooseLevel()" type="radio" id="easy" name="choice" value="easy"
                             checked="checked">
-                        Easy
-                        <input onchange="chooseLevel()" type="radio" id="hard" name="choice" value="hard"> Hard
-                        <input onchange="chooseLevel()" type="radio" id="extreme" name="choice" value="extreme"> Extreme
-                    </font>
+                            Easy
+                            <input onchange="chooseLevel()" type="radio" id="hard" name="choice" value="hard"> Hard
+                            <input onchange="chooseLevel()" type="radio" id="extreme" name="choice" value="extreme"> Extreme
+                        </font>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-
+            </div>        
     </div>
-
-    </div>
-    </div>
-    <div class="board-container" onclick="changeSmileyOnClick()"></div>
+<!-- <div class="board-container" onclick="changeSmileyOnClick()"></div> -->
+<div class="lives-count">❤️❤️❤️</div>
+<div class="game-container">
+    <div class="board-container"></div>
+</div>
     <div class="self-position">
         <span class="done-msg hide">All mines has been placed, You can start to play!</span><br>
         <span class="mine-counter hide">💣</span><br>
         <button onclick="activateSelfMode()">Manually Create Mines ✏️</button></div>
-    <div class="scores">
-        <span class="curr-score"></span>
-        <br>
-        <span class="best-score"></span>
-        <div>
-
+        <div class="scores">
+            <span class="curr-score"></span>
+            <br>
+            <span class="best-score"></span>
+            <div>
+            </div>
+        </div>
+            <div class="footer">Developed by Neho</div>
             <script src="js/utils.js"></script>
             <script src="js/game.js"></script>
-</body>
-
-</html>
+        </body>
+        
+        </html>
