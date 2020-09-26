@@ -26,7 +26,34 @@ function renderBoard(mat, selector) {
   // console.log(strHTML);
 }
 
+// show all gBoard[i][j].isShown cells, and hide other cells.
+function showCellsByModel(board = gBoard) {
+  for (var i = 0; i < board.length; i++) {
+    var currRow = board[i];
+    for (var j = 0; j < currRow.length; j++) {
+      var pos = { i, j }
+      var currCell = currRow[j];
+      var value = ''
+      if (currCell.isShown) {
+        if (!currCell.minesAroundCount && !currCell.isMine) value = '';
+        if (currCell.minesAroundCount && !currCell.isMine) value = currCell.minesAroundCount;
+        if (currCell.isMine) value = MINE;
+        // value = currCell.isMine ? MINE : ''; //  tried using short if but passed.
+        // value = !currCell.isMine && currCell.minesAroundCount ? currCell.minesAroundCount : '';
+        revealCellsByData(pos)
+      }
+        if (!currCell.isShown){
+          if (currCell.isMarked) value = FLAG;
+          unrevealCellsByData(pos)
+        }
+        renderCellByData(pos, value)
+    }
+  }
+}
 
+//gBoard[1][1].isMarked
+// showCellsByModel()
+// gBoard[1][1].isMarked = true
 
 // location such as: {i: 2, j: 7}
 function renderCellByData(location, value) {
@@ -53,6 +80,12 @@ function revealCellsByDataToggle(location) {
   var elCell = document.querySelector(`[data-id="${location.i}-${location.j}"]`);
   elCell.classList.toggle('unrevealed');
 }
+
+// function hideCellsByDataToggle(location) {
+//   // Select the elCell and set the value
+//   var elCell = document.querySelector(`[data-id="${location.i}-${location.j}"]`);
+//   elCell.classList.add('unrevealed');
+// }
 
 function unrevealCellsByData(location) {
   // Select the elCell and set the value

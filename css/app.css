@@ -109,6 +109,7 @@ body {
 }
 
 button {
+  margin: 2px;
   background-color: white;
   border-width: 0.1px;
   border-radius: 4px;
