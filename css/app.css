@@ -1,6 +1,5 @@
 body {
   background-color: #f0f0f0;
-  /* color:white; */
   font-family: "Lato", sans-serif;
   transition: all 0.5s;
 }
@@ -8,11 +7,22 @@ body {
 .scores {
   text-align: center;
   margin-top: 50px;
-}
+  height: 100px;
+  /* background-image: url("/img/scores-bg.png"); */
+  /* background-color: #cccccc; */
+  background-position: center; /* Center the image */
+  background-size: auto; /* Resize the background image to cover the entire container */
+  background-repeat: no-repeat;
+  background-size: 100px;
+  /* filter: grayscale(50%);
+   */
+  /* filter: opacity(20%); */
+  }
 
 .counter {
   height: 10px;
   transition: all 0.2s;
+  margin-right: 10px;
 }
 
 .btns {
@@ -35,9 +45,6 @@ body {
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.2s;
-
-  /* padding: 10px; */
-  /* margin: 10px; */
 }
 
 .smiley:hover {
@@ -76,6 +83,7 @@ body {
   padding-left: 30px;
   padding-right: 30px;
   background-color: white;
+  transition: all 0.2s linear 0.5s;
 }
 
 .lives-count {
@@ -110,10 +118,15 @@ body {
 
 button {
   margin: 2px;
+  width: 100px;
   background-color: white;
   border-width: 0.1px;
   border-radius: 4px;
   padding: 4px;
+}
+
+.action-btns {
+  width: 170px;
 }
 
 .bomb-cursor {
@@ -177,7 +190,10 @@ button:hover {
   }    
 }    
 .borderBlink{    
-  border:2px solid rgb(32, 166, 207);
+  -webkit-box-shadow:inset 0px 0px 0px 3px rgb(32, 166, 207);
+  -moz-box-shadow:inset 0px 0px 0px 3px rgb(32, 166, 207);
+  box-shadow:inset 0px 0px 0px 3px rgb(32, 166, 207);
+  /* border:2px solid rgb(32, 166, 207); */
   -webkit-animation: borderBlink 1s step-end infinite;    
   animation: borderBlink 1s step-end infinite;    
   transition: all 0.2s linear 1s;
@@ -204,8 +220,8 @@ button:hover {
 }
 
 .header {
-  margin-left: -10px;
-  margin-right: -10px;
+  margin-left: -8px;
+  margin-right: -8px;
   margin-top: -10px;
   padding-top: 5px;
   padding-bottom: 5px;

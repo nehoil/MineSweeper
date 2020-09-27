@@ -1,0 +1,175 @@
+body {
+  background-color: #ffffff;
+  /* color:white; */
+  font-family: "Lato", sans-serif;
+  transition: all 0.5s;
+}
+
+.scores {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.counter {
+  height: 10px;
+  transition: all 0.2s;
+}
+
+.btns {
+  margin-top: 30px;
+  width: 100%;
+  height: 50px;
+  transition: all 0.2s;
+}
+
+.level-choice {
+  margin-top: 30px;
+}
+
+.smiley {
+  display: inline;
+  background-color: rgb(247, 236, 222);
+  padding: 8px;
+  border: solid;
+  border-width: 0.5px;
+  border-color: rgb(146, 128, 128);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  /* padding: 10px; */
+  /* margin: 10px; */
+}
+
+.hint-count {
+  font-size: 13px;
+  color: rgb(123, 133, 141);
+  transition: all 0.2s;
+}
+
+.sclick-count {
+  font-size: 13px;
+  color: rgb(123, 133, 141);
+  transition: all 0.2s;
+}
+
+.hint {
+  display: inline;
+  margin: auto;
+  padding-top: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  /* padding: 10px; */
+  /* margin: 10px; */
+}
+
+.messages {
+  text-align: center;
+  height: 100px;
+  transition: all 0.2s;
+}
+
+.hint-clicked {
+  filter: brightness(150%);
+  transition: all 0.2s;
+}
+
+.mine-img {
+  width: 30px;
+}
+
+#header {
+  font-size: 22px;
+  height: 140px;
+  width: 100%;
+  margin-bottom: 50px;
+  /* /* padding-bottom: 10px; */
+  text-align: center;
+  background-color: rgb(209, 35, 35) (255, 241, 241);
+  color: rgb(4, 92, 255);
+  transition: all 0.2s;
+}
+
+
+.shadow {
+  -webkit-box-shadow: 0 6px 4px -4px rgb(134, 124, 124);
+  -moz-box-shadow: 0 6px 4px -4px rgb(168, 146, 146);
+  box-shadow: 0 6px 4px -4px rgb(146, 128, 128);
+  /* opacity: 50%; */
+}
+
+table {
+  margin: auto;
+  border-width: 1px;
+  table-layout: fixed;
+  border-color: rgb(10, 10, 10);
+  transition: width 2s linear 1s; 
+  /* background-color: rgb(214, 212, 212); */
+}
+
+/* th {
+  width: 20px;
+  height: 20px;
+  font-size: 20px; */
+/* overflow: hidden; */
+/* }
+ */
+
+td {
+  width: 20px;
+  height: 20px;
+  max-width: 20px;
+  min-width: 20px;
+  max-height: 20px;
+  min-height: 20px;
+  overflow: hidden;
+  /* height: 100%; */
+  /* padding: 100%; */
+  /* margin: 100%; */
+  /* overflow: hidden; */
+  background-color: rgb(240, 235, 235);
+}
+
+td:hover {
+  background-color: rgb(224, 203, 203);
+  /* color: blue; */
+}
+
+/* img {
+  width: 100%;
+} */
+
+.unrevealed {
+  background-color: rgb(179, 168, 168);
+  /* padding: 30px; */
+  /* visibility:hidden; */
+}
+
+.clicked-mine {
+  background-color: red;
+}
+
+.cell {
+  transition: all 0.5s;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.rotated-up {
+  transform: rotate(90deg);
+}
+.rotated-down {
+  transform: rotate(-90deg);
+}
+.rotated-right {
+  transform: rotate(180deg);
+}
+.rotated-left {
+  transform: rotate(0deg);
+}
+
+
+.hide {
+  display: none;
+}

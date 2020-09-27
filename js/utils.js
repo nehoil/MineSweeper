@@ -1,29 +1,38 @@
 function renderBoard(mat, selector) {
-  var strHTML = '<table border="1"><tbody>';
+  var strHTML = '<table border="0"><tbody>';
   for (var i = 0; i < mat.length; i++) {
     strHTML += '<tr>';
     for (var j = 0; j < mat[0].length; j++) {
       var cell = '';
       var className = `cell ${i}-${j} unrevealed`;
       var dataId = `${i}-${j}`;
-      var oncontextmenu = `oncontextmenu="rightClicked(this,${i},${j})"`
+      var oncontextmenu = `oncontextmenu="rightClicked(this,${i},${j})"`;
       var onClick = `onclick="cellClicked(this,${i},${j})"`;
-      var onMouse = `onmousedown="mouseDown(${i},${j})" onmouseup="mouseUp()"`
+      var onMouse = `onmousedown="mouseDown(${i},${j})" onmouseup="mouseUp()"`;
+      var color = `black`;
       if (mat[i][j].isShown) cell = ' ';
       if (mat[i][j].isMine) cell = MINE;
       if (mat[i][j].minesAroundCount && mat[i][j].isMine !== true) cell += mat[i][j].minesAroundCount;
-      if (!mat[i][j].isShown) {
-        cell = ``;
-        // className = `cell cell ${i}-${j} unrevealed`;
-      }
-      strHTML += `<td class="${className}" data-id="${dataId}" ${onClick} ${oncontextmenu} ${onMouse}>${cell}</td>`
+      if (!mat[i][j].isShown) cell = ``;
+      if (mat[i][j].minesAroundCount === 2) color = `red`;
+      strHTML += `<td class="${className}" style="color:${color}" data-id="${dataId}" ${onClick} ${oncontextmenu} ${onMouse}>${cell}</td>`
     }
     strHTML += '</tr>'
   }
   strHTML += '</tbody></table>';
   var elContainer = document.querySelector(selector);
   elContainer.innerHTML = strHTML;
-  // console.log(strHTML);
+}
+
+
+function convertNumToColorStr(num){
+  var strHTML = `<font color="blue">${num}</font>`;
+ if (num === 2) strHTML = `<font color="green">2</font>`;
+ if (num === 3) strHTML = `<font color="red">3</font>`;
+ if (num === 4) strHTML = `<font color="#000080">4</font>`;
+ if (num === 5) strHTML = `<font color="darkred">5</font>`;
+ if (num === 6) strHTML = `<font color="#40E0D0">6</font>`;
+ return strHTML;
 }
 
 // show all gBoard[i][j].isShown cells, and hide other cells.
@@ -31,9 +40,9 @@ function showCellsByModel(board = gBoard) {
   for (var i = 0; i < board.length; i++) {
     var currRow = board[i];
     for (var j = 0; j < currRow.length; j++) {
-      var pos = { i, j }
+      var pos = { i, j };
       var currCell = currRow[j];
-      var value = ''
+      var value = '';
       if (currCell.isShown) {
         if (!currCell.minesAroundCount && !currCell.isMine) value = '';
         if (currCell.minesAroundCount && !currCell.isMine) value = currCell.minesAroundCount;
@@ -42,11 +51,11 @@ function showCellsByModel(board = gBoard) {
         // value = !currCell.isMine && currCell.minesAroundCount ? currCell.minesAroundCount : '';
         revealCellsByData(pos)
       }
-        if (!currCell.isShown){
-          if (currCell.isMarked) value = FLAG;
-          unrevealCellsByData(pos)
-        }
-        renderCellByData(pos, value)
+      if (!currCell.isShown) {
+        if (currCell.isMarked) value = FLAG;
+        unrevealCellsByData(pos)
+      }
+      renderCellByData(pos, value)
     }
   }
 }

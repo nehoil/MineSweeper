@@ -15,7 +15,7 @@
 <body onload="initGame()">
     <div class="header">
             <div class="stats">
-                <span class="timer">0:00</span>🕒
+                <span class="timer">0:00</span> 🕒
                 <span class="marked-counter">0</span></h2> 🚩
                 <span class="mines-counter">0</span></h2> 💣
                 <div class="btns">
@@ -26,11 +26,12 @@
                     </div>
                     <div id="level-choice">
                         <font size="4">
-                            <input onchange="chooseLevel()" type="radio" id="easy" name="choice" value="easy"
-                            checked="checked">
-                            Easy
-                            <input onchange="chooseLevel()" type="radio" id="hard" name="choice" value="hard"> Hard
-                            <input onchange="chooseLevel()" type="radio" id="extreme" name="choice" value="extreme"> Extreme
+                            <button onclick="chooseLevel(1)">
+                            Easy</button>
+                            <button onclick="chooseLevel(2)">
+                            Hard</button>
+                            <button onclick="chooseLevel(3)">
+                            Extreme</button>
                         </font>
                     </div>
                 </div>
@@ -44,8 +45,8 @@
     <div class="self-position">
         <span class="done-msg hide">All mines has been placed, You can start to play!</span><br>
         <span class="mine-counter hide">💣</span><br>
-        <button onclick="activateSelfMode()">Manually Place Mines ✏️</button><br>
-        <button onclick="undo()">Undo ↩️</button></div>
+        <button class="action-btns" onclick="activateSelfMode()">Manually Place Mines ✏️</button><br>
+        <button class="action-btns" onclick="undo()">Undo ↩️</button></div>
         <div class="scores">
             <span class="curr-score"></span>
             <br>
