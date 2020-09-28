@@ -679,16 +679,12 @@ function addTimer() {
     if (gGameInterval) return;
     var startTime = Date.now();
     gGameInterval = setInterval(function () {
-        var sec = min = 0
+        var sec = 0;
         var timer = Date.now() - startTime;
-        console.log('timer', (timer / 1000).toFixed());
+        // console.log('timer', (timer / 1000).toFixed());
         gGame.secsPassed = (timer / 1000).toFixed();
         sec = (timer / 1000).toFixed();
-        if (min > 59){
-            min = 0;
-            min++
-        }
-        document.querySelector(".timer").innerHTML = `${min}:${sec}`
+        document.querySelector(".timer").innerHTML = `${sec}s`
     }, 1000);
 }
 

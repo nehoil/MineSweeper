@@ -13,9 +13,10 @@
 </head>
 
 <body onload="initGame()">
-    <div class="header">
+        
+        <div class="header">
             <div class="stats">
-                <span class="timer">0:00</span> 🕒
+                <span class="timer">0s</span> 🕒
                 <span class="marked-counter">0</span></h2> 🚩
                 <span class="mines-counter">0</span></h2> 💣
                 <div class="btns">
@@ -27,36 +28,36 @@
                     <div id="level-choice">
                         <font size="4">
                             <button onclick="chooseLevel(1)">
-                            Easy</button>
-                            <button onclick="chooseLevel(2)">
-                            Hard</button>
-                            <button onclick="chooseLevel(3)">
-                            Extreme</button>
-                        </font>
-                    </div>
-                </div>
-            </div>        
-    </div>
-<!-- <div class="board-container" onclick="changeSmileyOnClick()"></div> -->
-<div class="lives-count">❤️❤️❤️</div>
-<div class="game-container">
-    <div class="board-container"></div>
-</div>
-    <div class="self-position">
-        <span class="done-msg hide">All mines has been placed, You can start to play!</span><br>
-        <span class="mine-counter hide">💣</span><br>
-        <button class="action-btns" onclick="activateSelfMode()">Manually Place Mines ✏️</button><br>
-        <button class="action-btns" onclick="undo()">Undo ↩️</button></div>
-        <div class="scores">
-            <span class="curr-score"></span>
-            <br>
-            <span class="best-score"></span>
-            <div>
-            </div>
-        </div>
-            <div class="footer">Developed by Neho</div>
-            <script src="js/utils.js"></script>
-            <script src="js/game.js"></script>
-        </body>
-        
-        </html>
+                                Easy</button>
+                                <button onclick="chooseLevel(2)">
+                                    Hard</button>
+                                    <button onclick="chooseLevel(3)">
+                                        Extreme</button>
+                                    </font>
+                                </div>
+                            </div>
+                        </div>        
+                        <!-- <div class="board-container" onclick="changeSmileyOnClick()"></div> -->
+                        <div class="lives-count">❤️❤️❤️</div>
+                        <div class="game-container">
+                            <div class="board-container"></div>
+                        </div>
+                        <div class="self-position">
+                            <span class="done-msg hide">All mines has been placed, You can start to play!</span><br>
+                            <span class="mine-counter hide">💣</span><br>
+                            <button class="action-btns" onclick="activateSelfMode()">Manually Place Mines ✏️</button><br>
+                            <button class="action-btns" onclick="undo()">Undo ↩️</button></div>
+                            <div class="scores">
+                                <span class="curr-score"></span>
+                                <br>
+                                <span class="best-score"></span>
+                                <div>
+                                </div>
+                            </div>
+                            <div class="footer">Developed by Neho</div>
+                        </div>
+                        <script src="js/utils.js"></script>
+                        <script src="js/game.js"></script>
+                    </body>
+                    
+                    </html>
