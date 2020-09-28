@@ -679,11 +679,56 @@ function addTimer() {
     if (gGameInterval) return;
     var startTime = Date.now();
     gGameInterval = setInterval(function () {
+        var sec = min = 0
         var timer = Date.now() - startTime;
-        gGame.secsPassed = (timer / 1000).toFixed(3);
-        document.querySelector(".timer").innerHTML = gGame.secsPassed
-    }, 160);
+        console.log('timer', (timer / 1000).toFixed());
+        gGame.secsPassed = (timer / 1000).toFixed();
+        sec = (timer / 1000).toFixed();
+        if (min > 59){
+            min = 0;
+            min++
+        }
+        document.querySelector(".timer").innerHTML = `${min}:${sec}`
+    }, 1000);
 }
+
+
+// var sec = min = hour = 0;
+// var clock = 0;
+// stopWatch = function(){
+// clearTimeout(clock);
+//     sec++;
+//     if (sec >=59){
+//     sec = 0;
+//         min++;
+//     }
+//     if (min>=59){
+//     min=0;
+//         hour++;
+//     }
+//     document.getElementById("sec").innerHTML = (sec < 10) ? "0" + sec : sec;
+//     document.getElementById("min").innerHTML = (min < 10) ? "0" + min : min;
+//     document.getElementById("hour").innerHTML = (hour < 10) ? "0" + hour : hour;
+//     clock = setTimeout("stopWatch()",1000);
+// }
+// stopWatch();
+
+// pause = function(){
+// clearTimeout(clock);
+//     return false;
+// }
+
+// play = function(){
+//     stopWatch();
+// return false;
+// }
+
+// reset = function(){
+//     sec = min = hour = 0;
+//     stopWatch();
+// return false;
+// }
+
 
 function winMsg() {
     stopCount();
